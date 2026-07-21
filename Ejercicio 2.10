@@ -1,0 +1,41 @@
+class Pedido:
+    """
+    Esta clase define objetos de tipo Pedido que consta
+    de diferentes platos y tiene algún valor.
+    """
+
+    def calcular_pedido(self, primer_plato, costo_primero, bebida, costo_bebida, 
+                        segundo_plato=None, costo_segundo=0, 
+                        postre=None, costo_postre=0):
+        """
+        Método que simula la sobrecarga por parámetros opcionales.
+        Calcula el costo total y muestra el detalle.
+        """
+        total = costo_primero + costo_bebida + costo_segundo + costo_postre
+        
+        #Acá es el mensaje de salida según los platos que haya
+        cuerpo_mensaje = f"{primer_plato} + {bebida}"
+        
+        if segundo_plato and not postre:
+            cuerpo_mensaje = f"{primer_plato} + {segundo_plato} + {bebida}"
+        elif segundo_plato and postre:
+            cuerpo_mensaje = f"{primer_plato} + {segundo_plato} + {bebida} + {postre}"
+            
+        print(f"El costo de {cuerpo_mensaje} es = ${total:.1f}")
+
+def main():
+    pedido_sistema = Pedido()
+    #Sancocho(5000) y gaseosa(2000)
+    pedido_sistema.calcular_pedido("Sancocho", 5000, "Gaseosa", 2000)
+
+    #Crema de verduras(5000),churrasco(8000) y gaseosa(2000)
+    pedido_sistema.calcular_pedido("Crema de verduras", 5000, "Gaseosa", 2000, 
+                                   segundo_plato="Churrasco", costo_segundo=8000)
+
+    #Crema de espinacas(5000),salmón(12000),gaseosa(2000) y tiramisú(3000)
+    pedido_sistema.calcular_pedido("Crema de espinacas", 5000, "Gaseosa", 2000,
+                                   segundo_plato="Salmón", costo_segundo=12000,
+                                   postre="Tiramisú", costo_postre=3000)
+
+
+main()
