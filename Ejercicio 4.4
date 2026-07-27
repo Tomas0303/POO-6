@@ -1,0 +1,25 @@
+#Superclase
+class Profesor:
+    """Representa un profesor"""
+    
+    def imprimir(self):
+        """acá se identifica al objeto como profesor."""
+        print("Es un profesor.")
+
+#Subclase
+class ProfesorTitular(Profesor):
+    """Subclase que cambia el comportamiento del profesor."""
+    
+    def imprimir(self):
+        """Sobrescribe el método de la clase padre."""
+        print("Es un profesor titular.")
+
+#Prueba
+def main():
+
+    profesor1 = ProfesorTitular()
+
+    profesor1.imprimir()
+
+
+main()
