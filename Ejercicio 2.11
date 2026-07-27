@@ -1,0 +1,47 @@
+class ArticuloCientifico:
+    """
+    Esta clase tiene objetos de tipo ArtículoCientífico con su título, 
+    autor, palabras clave, año de publicación y el resumen.
+    """
+
+    def __init__(self, titulo, autor, palabras_claves=None, publicacion=None, año=0, resumen=None):
+        #Nivel 1 
+        self.titulo = titulo
+        self.autor = autor
+
+        #Nivel 2
+        self.palabras_claves = palabras_claves if palabras_claves is not None else []
+        self.publicacion = publicacion
+        self.año = año
+
+        #Nivel 3
+        self.resumen = resumen
+
+    def imprimir(self):
+        """Muestra los atributos del artículo científico."""
+        print(f"Título del artículo = {self.titulo}")
+        print(f"Autor del artículo = {self.autor}")
+        print("Palabras clave = ")
+        for p in self.palabras_claves:
+            print(p)
+        print(f"Publicación = {self.publicacion}")
+        print(f"Año = {self.año}")
+        print(f"Resumen = {self.resumen}")
+
+#Bloque principal
+def main():
+    #Datos de Albert Einstein
+    palabras = ["Física", "Espacio", "Tiempo"]
+    titulo_e = "La teoría especial de la relatividad"
+    autor_e = "Albert Einstein"
+    pub_e = "Anales de Física"
+    año_e = 1913
+    resumen_e = "Las leyes de la física son las mismas en todos los sistemas de referencia inerciales."
+    #otro constructor
+    articulo = ArticuloCientifico(titulo_e, autor_e, palabras, pub_e, año_e, resumen_e)
+    
+    # Mostrar resultados en pantalla
+    articulo.imprimir()
+
+
+main()
