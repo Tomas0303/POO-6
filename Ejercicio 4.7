@@ -1,0 +1,110 @@
+from abc import ABC, abstractmethod
+
+#Superclase
+class Animal(ABC):
+    """Clase raíz"""
+    
+    def __init__(self):
+        # Atributos
+        self.sonido = None
+        self.alimentos = None
+        self.hábitat = None
+        self.nombre_científico = None
+
+    @abstractmethod
+    def get_nombre_científico(self):
+        pass
+
+    @abstractmethod
+    def get_sonido(self):
+        pass
+
+    @abstractmethod
+    def get_alimentos(self):
+        pass
+
+    @abstractmethod
+    def get_hábitat(self):
+        pass
+
+#SubclaseCánido 
+class Cánido(Animal):
+    """Familia de animales derivada de Animal."""
+    pass
+
+#SubclaseFelino
+class Felino(Animal):
+    """Familia de animales derivada de Animal."""
+    pass
+
+#Clase  Perro
+class Perro(Cánido):
+    def get_sonido(self):
+        return "Ladrido"
+
+    def get_alimentos(self):
+        return "Carnívoro"
+
+    def get_hábitat(self):
+        return "Doméstico"
+
+    def get_nombre_científico(self):
+        return "Canis lupus familiaris"
+
+#Clase  Lobo 
+class Lobo(Cánido):
+    def get_sonido(self):
+        return "Aullido"
+
+    def get_alimentos(self):
+        return "Carnívoro"
+
+    def get_hábitat(self):
+        return "Bosque"
+
+    def get_nombre_científico(self):
+        return "Canis lupus"
+
+#Clase León 
+class León(Felino):
+    def get_sonido(self):
+        return "Rugido"
+
+    def get_alimentos(self):
+        return "Carnívoro"
+
+    def get_hábitat(self):
+        return "Praderas"
+
+    def get_nombre_científico(self):
+        return "Panthera leo"
+
+#Clase Gato 
+class Gato(Felino):
+    def get_sonido(self):
+        return "Maullido"
+
+    def get_alimentos(self):
+        return "Ratones"
+
+    def get_hábitat(self):
+        return "Doméstico"
+
+    def get_nombre_científico(self):
+        return "Felis silvestris catus"
+
+#Prueba
+def main():
+    #array de animales
+    animales = [Gato(), Perro(), Lobo(), León()]
+
+    #polimorfismo
+    for animal in animales:
+        print(f"Nombre Científico: {animal.get_nombre_científico()}")
+        print(f"Sonido: {animal.get_sonido()}")
+        print(f"Alimentos: {animal.get_alimentos()}")
+        print(f"Hábitat: {animal.get_hábitat()}")
+        print("-" * 30)
+
+
+main()
