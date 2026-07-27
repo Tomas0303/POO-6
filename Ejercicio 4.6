@@ -1,0 +1,35 @@
+#Superclase Profesor
+class Profesor:
+    def imprimir(self):
+        """Método en la clase padre."""
+        print("Es un profesor.")
+
+#subclase ProfesorTitular
+class ProfesorTitular(Profesor):
+    def __init__(self):
+        self.años = 0  # Atributo de la clase hija
+
+    def imprimir(self):
+        """Redefinición del método de la clase padre."""
+        print("Es un profesor titular.")
+
+    def imprimir_años(self):
+        """Método de la clase hija."""
+        print(f"Años = {self.años}")
+
+#Prueba
+def main():
+
+    profesor1 = ProfesorTitular()
+
+
+    print(">>> Intentando ejecutar método específico de la hija:")
+    
+
+    if hasattr(profesor1, 'imprimir_años'):
+        profesor1.imprimir_años()
+    else:
+        print("Error: El tipo de referencia no conoce este método.")
+
+
+main()
